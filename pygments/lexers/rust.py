@@ -105,9 +105,9 @@ class RustLexer(RegexLexer):
             builtin_funcs_types,
             builtin_macros,
             # Path seperators, so types don't catch them.
-            (r'::\b', Text),
+            (r'::\b', Keyword.Namespace),
             # Types in positions.
-            (r'(?::|->)', Text, 'typename'),
+            (r'(?::|->)', Keyword.Namespace, 'typename'),
             # Labels
             (r'(break|continue)(\b\s*)(\'[A-Za-z_]\w*)?',
              bygroups(Keyword, Text.Whitespace, Name.Label)),
